@@ -12,5 +12,8 @@
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'post_new' %}">Crear nueva publicación</a>
+    <div class="newpost">
+        <a href="{% url 'post_new' %}" class="button">Crear nueva publicación</a>
+    </div>
+    
 {% endblock %}
