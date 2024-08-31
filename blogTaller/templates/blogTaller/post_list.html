@@ -6,14 +6,14 @@
     <h2>Publicaciones</h2>
     <ul>
         {% for post in posts %}
+        <a href="{% url 'post_detail' post.id %}">
             <li>
-                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                {{ post.title }}
                 <p>{{ post.created_at }}</p>
-            </li>
+            </li></a>
         {% endfor %}
     </ul>
     <div class="newpost">
         <a href="{% url 'post_new' %}" class="button">Crear nueva publicación</a>
     </div>
-    
 {% endblock %}

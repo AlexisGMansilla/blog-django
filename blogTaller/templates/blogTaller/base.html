@@ -4,19 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Blog Taller{% endblock %}</title>
+    <title>{% block title %}BlueBlog{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="https://icones.pro/wp-content/uploads/2022/06/icone-blog-et-blogger-bleu.png">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel="stylesheet" href="{% static 'blogTaller/style.css' %}">
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'post_list' %}">Blog Taller</a></h1>
+        <a href="{% url 'post_list' %}">
+            <img src="https://icones.pro/wp-content/uploads/2022/06/icone-blog-et-blogger-bleu.png" class="imgheader" alt="Logo Blog">
+        </a>
+        <h1>BlueBlog</h1>
     </header>
     <main>
-        {% block content %}{% endblock %}
-         
+        <div>
+            {% block content %}{% endblock %}
+        </div>
     </main>
     <footer>
-        <p class="footer">© 2024 Blog Taller</p>
+        <p class="footer">© 2024 BlueBlog</p>
         <p class="footer">Creado por <span> Alexis Mansilla</span></p>
     </footer>
 </body>

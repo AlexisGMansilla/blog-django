@@ -3,23 +3,35 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+
+<div class="post-header">
     <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <p>Publicado el {{ post.created_at }}</p>
+    <a href="{% url 'post_edit' post.id %}" class="button">
+        <i class="fi fi-br-edit"></i>
+    </a>
+</div>
+    <div class="postDetail">
+        <p>{{ post.content }}</p>
+        <p class="fecha">{{ post.created_at }}</p>
+    </div>
+
 
     <h3>Comentarios</h3>
     <ul>
         {% for comment in post.comments.all %}
-            <li>{{ comment.content }} - <em>{{ comment.created_at }}</em></li>
+            <li>{{ comment.content }} 
+                <p class="fecha"><em>{{ comment.created_at }}</em></p>
+            </li>
         {% endfor %}
     </ul>
-
-    <h3>Agregar un comentario</h3>
     <form method="POST">
+        <div class="formBg">
+        <h3>Agregar un comentario</h3>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Enviar</button>
+        <button type="submit" class="button">Enviar</button>
+        </div>
     </form>
 
-    <a href="{% url 'post_edit' post.id %}">Editar</a>
+
 {% endblock %}

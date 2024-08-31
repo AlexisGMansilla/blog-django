@@ -19,7 +19,6 @@ def post_detail(request, id):
             return redirect('post_detail', id=post.id)
     else:
         form = CommentForm()
-
     return render(request, 'blogTaller/post_detail.html', {'post': post, 'comments': comments, 'form': form})
 
 def post_edit(request, id=None):

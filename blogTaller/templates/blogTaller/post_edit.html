@@ -1,13 +1,13 @@
 {% extends 'blogTaller/base.html' %}
 
-{% block title %}{{ post.id|default:"Nueva" }} Publicación{% endblock %}
+{% block title %}Publicación {{ post.id|default:"Nueva" }} {% endblock %}
 
 {% block content %}
-    <h2>{{ post.id|default:"Nueva" }} Publicación</h2>
+    <a href="{% url 'post_list' %}" class="button"><i class="fi fi-br-arrow-small-left"></i></a>
     <form method="POST">
+        <h2 class="newPostH2">Publicación {{ post.id|default:"Nueva" }} </h2>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button type="submit" class="button">Guardar</button>
     </form>
-    <a href="{% url 'post_list' %}">Volver a la lista</a>
 {% endblock %}
